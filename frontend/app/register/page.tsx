@@ -41,7 +41,7 @@ export default function RegisterPage() {
                 onChange={(e) => setUsername(e.target.value)}
               />
               <Input
-                label="goosemail"
+                label="goosehmail"
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
