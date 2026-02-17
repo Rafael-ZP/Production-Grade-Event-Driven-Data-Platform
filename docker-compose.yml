@@ -1,4 +1,3 @@
-version: '3.8'
 services:
   # --- Infrastructure ---
   postgres:
@@ -121,6 +120,7 @@ services:
     build:
       context: ./jenkins
     container_name: netflix_jenkins
+    user: root
     ports:
       - "8086:8080"
       - "50000:50000"
