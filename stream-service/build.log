@@ -1,0 +1,40 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ---------------------< com.netflix:stream-service >---------------------
+[INFO] Building stream-service 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.5.0:clean (default-clean) @ stream-service ---
+[INFO] Deleting /Users/rafaelzieganpalg/Projects/netflix-clone/stream-service/target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ stream-service ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] Copying 0 resource from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.14.1:compile (default-compile) @ stream-service ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 2 source files with javac [debug parameters release 17] to target/classes
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ stream-service ---
+[INFO] skip non existing resourceDirectory /Users/rafaelzieganpalg/Projects/netflix-clone/stream-service/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.14.1:testCompile (default-testCompile) @ stream-service ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 1 source file with javac [debug parameters release 17] to target/test-classes
+[INFO] 
+[INFO] --- surefire:3.5.4:test (default-test) @ stream-service ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- jar:3.4.2:jar (default-jar) @ stream-service ---
+[INFO] Building jar: /Users/rafaelzieganpalg/Projects/netflix-clone/stream-service/target/stream-service-0.0.1-SNAPSHOT.jar
+[INFO] 
+[INFO] --- spring-boot:4.0.2:repackage (repackage) @ stream-service ---
+[INFO] Replacing main artifact /Users/rafaelzieganpalg/Projects/netflix-clone/stream-service/target/stream-service-0.0.1-SNAPSHOT.jar with repackaged archive, adding nested dependencies in BOOT-INF/.
+[INFO] The original artifact has been renamed to /Users/rafaelzieganpalg/Projects/netflix-clone/stream-service/target/stream-service-0.0.1-SNAPSHOT.jar.original
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  2.361 s
+[INFO] Finished at: 2026-02-17T12:21:44+05:30
+[INFO] ------------------------------------------------------------------------

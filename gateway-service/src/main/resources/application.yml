@@ -1,0 +1,37 @@
+server:
+  port: 8080
+
+spring:
+  main:
+    web-application-type: reactive
+  application:
+    name: gateway-service
+  cloud:
+    gateway:
+      routes:
+        - id: auth-service
+          uri: http://auth-service:8081
+          predicates:
+            - Path=/auth/**
+        - id: movie-service
+          uri: http://movie-service:8082
+          predicates:
+            - Path=/movies/**
+        - id: stream-service
+          uri: http://stream-service:8083
+          predicates:
+            - Path=/stream/**
+        - id: event-service
+          uri: http://event-service:8084
+          predicates:
+            - Path=/events/**
+        - id: analytics-service
+          uri: http://analytics-service:8085
+          predicates:
+            - Path=/analytics/**
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods: "*"
+            allowedHeaders: "*"
