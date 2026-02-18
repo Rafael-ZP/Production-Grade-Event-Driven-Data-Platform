@@ -16,8 +16,8 @@ pipeline {
         stage('Build & Test') {
             steps {
                 script {
-                    // Build all services using docker-compose (Maven build happens inside containers)
-                    sh "${DOCKER_COMPOSE_CMD} build"
+                    // Build specific services (excluding jenkins itself to avoid recreation)
+                    sh "${DOCKER_COMPOSE_CMD} build gateway-service auth-service movie-service stream-service event-service analytics-service frontend postgres redis kafka zookeeper"
                 }
             }
         }
@@ -25,8 +25,16 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
-                    // Start all services in detached mode
-                    sh "${DOCKER_COMPOSE_CMD} up -d"
+                    // Stop & Remove existing application containers to prevent naming conflicts
+                    // This is critical because the user might have 'stream-service' running from a different project context
+                    try {
+                        sh "docker rm -f gateway-service auth-service movie-service stream-service event-service analytics-service netflix_frontend netflix_postgres netflix_redis netflix_kafka netflix_zookeeper"
+                    } catch (Exception e) {
+                        echo "No containers to remove or removal failed: ${e.message}"
+                    }
+
+                    // Start specific services in detached mode
+                    sh "${DOCKER_COMPOSE_CMD} up -d gateway-service auth-service movie-service stream-service event-service analytics-service frontend postgres redis kafka zookeeper"
                 }
             }
         }
