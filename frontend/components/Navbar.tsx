@@ -1,14 +1,34 @@
 "use client";
 
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useAuth } from '@/context/AuthContext';
 import { LogOut, Film } from 'lucide-react';
 
+const TOP_OFFSET = 66;
+
 export default function Navbar() {
   const { user, logout } = useAuth();
+  const [showBackground, setShowBackground] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY >= TOP_OFFSET) {
+        setShowBackground(true);
+      } else {
+        setShowBackground(false);
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    }
+  }, []);
 
   return (
-    <nav className="fixed top-0 w-full z-50 bg-gradient-to-b from-black/80 to-transparent p-4 transition-all duration-300">
+    <nav className={`fixed top-0 w-full z-50 p-4 transition-colors duration-500 ${showBackground ? 'bg-zinc-900 bg-opacity-90' : 'bg-transparent'}`}>
       <div className="flex items-center justify-between max-w-7xl mx-auto">
         <Link href="/" className="flex items-center gap-2 text-red-600 font-bold text-3xl tracking-tighter hover:scale-105 transition-transform">
             <Film className="w-8 h-8" />
