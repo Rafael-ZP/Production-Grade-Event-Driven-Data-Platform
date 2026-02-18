@@ -45,7 +45,7 @@
 
 ## 🏗️ Architecture
 
-```mermaid
+```
 graph TD
     Client[Client (Next.js)] -->|HTTP/REST| Gateway[API Gateway :8080]
     Gateway -->|/auth| Auth[Auth Service :8081]
