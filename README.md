@@ -1,6 +1,7 @@
 # 🎥 Netflix Clone - Microservices Architecture
 
-![Uploading image.png…]()
+<img width="1941" height="886" alt="image" src="https://github.com/user-attachments/assets/30d010a7-a484-4438-a3f7-ced0236e649c" />
+
 
 
 > A production-grade, event-driven distributed system mimicking Netflix's core functionality. Built with **Spring Boot Microservices**, **Next.js**, **Kafka**, **Redis**, and **Docker**.
